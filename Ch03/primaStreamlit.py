@@ -53,7 +53,7 @@ if uploaded_file is not None:
         feature_importance = pd.DataFrame({
             "Feature" : X.columns,
             "Importance" : rf_model.feature_importances_
-        }).sort_values(by="importance", ascending=False)
+        }).sort_values(by="Importance", ascending=False)
 
         st.write(feature_importance)
 
