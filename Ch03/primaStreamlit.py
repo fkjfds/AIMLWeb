@@ -145,6 +145,6 @@ if uploaded_file is not None:
                     new_data.append(value)
 
             if st.button("Predict"):
-                predicion = (model.predic_proba([new_data])[:, 1] > threshold).astype(int)
+                prediction = (model.predict_proba([new_data])[:, 1] > threshold).astype(int)
                 result = "Diabetic" if Prediction[0] == 1 else "Non-diabtic"
                 st.write(f"Prediction with threshold : {result}")
