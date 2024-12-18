@@ -106,9 +106,9 @@ if uploaded_file is not None:
 
             # 정밀도-재현율 그래프
             if st.checkbox("Show Precision-Recall vs Threshold Curve"):
-                precision, recall, threshold = precision_recall_curve(y_Test, y_scores)
+                Prediction, recall, threshold = precision_recall_curve(y_test, y_scores)
                 plt.figure(figsize=(10, 6))
-                plt.plot(threshold, precision[:-1], label="recall", marker='.')
+                plt.plot(threshold, Prediction[:-1], label="recall", marker='.')
                 plt.plot(threshold, recall[:-1], label="Recall", marker='.')
                 plt.xlabel("Threshold");plt.ylabel("Precision / Recall")
                 plt.title("Precsion and Recall vs Threshold")
@@ -146,5 +146,5 @@ if uploaded_file is not None:
 
             if st.button("Predict"):
                 predicion = (model.predic_proba([new_data])[:, 1] > threshold).astype(int)
-                result = "Diabetic" if prediction[0] == 1 else "Non-diabtic"
+                result = "Diabetic" if Prediction[0] == 1 else "Non-diabtic"
                 st.write(f"Prediction with threshold : {result}")
