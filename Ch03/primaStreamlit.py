@@ -114,7 +114,7 @@ if uploaded_file is not None:
                 plt.title("Precsion and Recall vs Threshold")
                 plt.legend();plt.grid()
                 start, end = plt.xlim()
-                plt.xtickes(np.arange(start, end, 0.1))
+                plt.xticks(np.arange(start, end, 0.1))
                 st.pyplot(plt)
 
             # AUC-ROC 그래프
